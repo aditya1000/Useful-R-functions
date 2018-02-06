@@ -1,9 +1,9 @@
-get_seq_date <- function(x){
+get_seq_date <- function(x, interval_in_days){
   y <- NULL
   s_y <- NULL
   if(length(x) > 1){
     for(i in 1:(length(x)-1)){
-      y[i]  <- round((as.Date(x[i+1],"%m/%d/%Y" )-as.Date(x[i], "%m/%d/%Y"))/91) 
+      y[i]  <- round((as.Date(x[i+1],"%m/%d/%Y" )-as.Date(x[i], "%m/%d/%Y"))/interval_in_days) 
     }
     if(length(y) != 1){
       for(j in 1:(length(y)+1)){
