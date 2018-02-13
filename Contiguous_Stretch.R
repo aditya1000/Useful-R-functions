@@ -2,7 +2,8 @@ Contiguous_Stretch <- function(data, indx){
   seq_list <- list(list())
   data_subset <- data[,indx]
   na_count <- data.frame(apply(is.na(data_subset),1,sum))
-  na_count[which(na_count$apply.is.na.data_subset...1..sum. != 0),] <- NA
+  names(na_count) <- "missing_count"
+  na_count[which(na_count$missing_count != 0),] <- NA
   na_ind <- which(is.na(na_count) == T)
   #########################
   for(i in na_ind){
@@ -17,6 +18,10 @@ Contiguous_Stretch <- function(data, indx){
   data <- data[((ind_with_long_stretch+1) : (ind_with_long_stretch_next-1)),]
   return(data)
 }
+
+
+
+
 
 
 
